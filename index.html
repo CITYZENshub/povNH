@@ -32,6 +32,15 @@ video {
   display: block;
 }
 
+/* HIDE FULLSCREEN & DOWNLOAD BUTTON */
+video::-webkit-media-controls-fullscreen-button {
+display: none !important;
+}
+
+video::-webkit-media-controls-overflow-button {
+display: none !important;
+}
+
 /* TITLE */
 .rec-title {
   color: #fff;
@@ -56,7 +65,7 @@ video {
 </style>
 </head>
 
-<body>
+<body oncontextmenu="return false;">
 
 <!-- POPUNDER -->
 <script src="https://lentattire.com/90/52/a8/9052a806ec2278f70b73baa6c802f852.js"></script>
@@ -65,9 +74,19 @@ video {
 
 <!-- VIDEO -->
 <div class="video-box">
-<video id="player" controls muted playsinline preload="metadata">
+
+<video 
+id="player"
+controls
+muted
+playsinline
+preload="metadata"
+controlsList="nofullscreen nodownload noremoteplayback"
+disablePictureInPicture
+>
 <source id="videoSource" src="" type="video/mp4">
 </video>
+
 </div>
 
 <!-- TITLE -->
